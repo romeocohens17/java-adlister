@@ -15,6 +15,16 @@
 </head>
 <body>
 
+<%
+if(request.getParameter("username") != null && request.getParameter("password") != null) {
+    if(request.getParameter("username").equalsIgnoreCase("admin") && request.getParameter("password").equalsIgnoreCase("password")) {
+        response.sendRedirect("/profile.jsp");
+    } else {
+        response.sendRedirect("/login.jsp");
+    }
+}
+%>
+
 <h1>LOGIN</h1>
 <form action="login.jsp" method="post">
     <label for="username">USERNAME</label>
@@ -24,16 +34,16 @@
     <button type="submit">ENTER</button>
 </form>
 
-<c:if test="${(param.username != null) && (param.password != null)}">
-    <c:choose>
-        <c:when test='${(param.username.equalsIgnoreCase("admin")) && (param.password.equalsIgnoreCase("password"))}'>
-           <% response.sendRedirect("profile.jsp"); %>
-        </c:when>
-        <c:otherwise>
-            <% response.sendRedirect("login.jsp"); %>
-        </c:otherwise>
-    </c:choose>
-</c:if>
+<%--<c:if test="${param.username != null && param.password != null}">--%>
+<%--    <c:choose>--%>
+<%--        <c:when test='${param.username.equalsIgnoreCase("admin") && param.password.equalsIgnoreCase("password")}'>--%>
+<%--           <% response.sendRedirect("/profile.jsp"); %>--%>
+<%--        </c:when>--%>
+<%--        <c:otherwise>--%>
+<%--            <% response.sendRedirect("/login.jsp"); %>--%>
+<%--        </c:otherwise>--%>
+<%--    </c:choose>--%>
+<%--</c:if>--%>
 
 </body>
 </html>
