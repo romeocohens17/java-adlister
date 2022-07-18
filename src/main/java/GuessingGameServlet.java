@@ -13,7 +13,7 @@ public class GuessingGameServlet extends HttpServlet {
     }
 
     @Override
-    protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String guess = req.getParameter("guess");
         String randomNumber = String.valueOf((int)Math.floor(Math.random() * 3) + 1);
         if (guess.equals(randomNumber)) {
