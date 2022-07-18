@@ -7,11 +7,10 @@ import java.util.Date;
 public class BeanTest{
 
     public static void main(String[] args) {
-    Quote GreatQuote = new Quote();
     Artist JCole = new Artist(17,false, "JCole", "English");
-    Album TheOffSeason = new Album(16, JCole, "The Off-Season", new Date(2021), 1000000.0, "Rap");
+    Album TheOffSeason = new Album(16, JCole, "The Off-Season", new Date("05/14/2021"), 1.0, "Rap");
 
-        System.out.println(TheOffSeason.getName());
+        System.out.println(TheOffSeason.getName() + " by " + TheOffSeason.getArtist().getName() + "\n" + "Release Date: " + TheOffSeason.getReleaseDate() + "\n" + "Genre: " + TheOffSeason.getGenre() + "\n" + "Album Sales: " + TheOffSeason.getSales() + "\n");
 
         Author Romeo = new Author(1, "Romeo", "Cohens");
         Author Jack = new Author(2, "Jacqueline", "Camacho");
