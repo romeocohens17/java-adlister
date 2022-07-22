@@ -9,9 +9,10 @@ public class MySQLAdsDao implements Ads {
     @Override
     public List<Ad> all() {
        List<Ad> newAdsList = new ArrayList<>();
+       PreparedStatement smt = null;
        try {
-           Statement smt = connection.createStatement();
-           ResultSet rs = smt.executeQuery("SELECT * FROM ads");
+           smt = connection.prepareStatement("SELECT * FROM ads");
+           ResultSet rs = smt.executeQuery();
            while(rs.next()) {
                newAdsList.add(new Ad(
                        rs.getLong("id"),
