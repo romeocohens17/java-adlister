@@ -1,8 +1,6 @@
-package com.codeup.adlister.dao;
+package com.codeup.adlister.daos;
 
 import com.codeup.adlister.models.User;
-
-import java.util.List;
 
 public interface Users {
     User findByUsername(String username);
